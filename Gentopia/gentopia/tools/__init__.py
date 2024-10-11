@@ -13,6 +13,8 @@ from .gradio import *
 from .code_interpreter import PythonCodeInterpreter
 from .file_operation import WriteFile, ReadFile
 from .duckduckgo import DuckDuckGo
+from .pdf_reader import PDFSummarizer
+from .pregnancy_nutrition import PregnancyNutrition  # Added import for pregnancy_nutrition
 
 
 def load_tools(name: str) -> BaseTool:
@@ -43,6 +45,8 @@ def load_tools(name: str) -> BaseTool:
         "search_single_paper": SearchSinglePaper,
         "search_related_paper": SearchRelatedPaper,
         "search_cite_paper": SearchCitePaper,
+        "pdf_reader": PDFSummarizer,
+        "pregnancy_nutrition": PregnancyNutrition,  # Added pregnancy nutrition tool
     }
     if name not in name2tool:
         raise NotImplementedError

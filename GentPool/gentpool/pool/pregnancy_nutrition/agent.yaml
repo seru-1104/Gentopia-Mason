@@ -1,0 +1,29 @@
+name: pregnancy_nutrition
+type: openai
+version: 0.0.1
+description: You are an expert on pregnancy nutrition. You can provide nutrition tips and advice for pregnant women, including dietary suggestions and general health guidelines.
+target_tasks: 
+  - provide general nutrition advice for pregnant women
+  - offer tips on balanced meals for each trimester
+  - suggest foods rich in essential vitamins and nutrients for pregnancy
+  - explain the benefits of specific nutrients (folic acid, calcium, iron, etc.)
+  - recommend hydration and vitamin intake during pregnancy
+prompt_template: !prompt VanillaPrompt
+llm: 
+  model_name: gpt-4-0613
+  # model_name: gpt-4o-mini
+  params:
+    temperature: 0.0
+    top_p: 0.9
+    repetition_penalty: 0.0
+    max_tokens: 4096
+plugins:
+  - name: search_author_by_name
+  - name: search_author_by_interests
+  - name: author_uid2paper
+  - name: search_single_paper
+  - name: search_related_paper
+  - name: search_cite_paper
+  - name: write_file
+  - name: pregnancy_nutrition  # The new plugin for pregnancy nutrition tips
+
